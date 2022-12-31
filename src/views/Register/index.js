@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 
 export default function Register() {
   const [registerValues, setRegisterValues] = useState({
@@ -8,9 +9,37 @@ export default function Register() {
     password:""
   });
 
-  const handleSubmit = (e) => {
+  const generateError = (err) => 
+  toast.error(err, {
+    position:"bottom-right"
+  })
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(registerValues)
+    try{
+      const {data} = await axios.post(
+        "http://localhost:5001/auth/register", 
+        {
+          ...registerValues
+        },
+        {
+          withCredentials: true
+        }
+      );
+
+      if(data){
+        if(data.errors){
+          const {email, password} = data.errors;
+          if(email) generateError(email);
+          else if(password) generateError(password)
+        } else {
+
+        }
+      }
+
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
