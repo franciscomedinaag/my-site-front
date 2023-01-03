@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
+import env from "react-dotenv";
 
 export default function Admin() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function Admin() {
         navigate("/login");
       } else {
         const { data } = await axios.post(
-          "http://localhost:5001/auth/checkUser",
+          `${env.API_URL}/auth/checkUser`,
           {},
           {withCredentials:true}
         );

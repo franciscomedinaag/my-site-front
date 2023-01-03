@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import env from "react-dotenv";
 
 export default function Login() {
   const [registerValues, setRegisterValues] = useState({
@@ -20,7 +21,7 @@ export default function Login() {
     e.preventDefault();
     try{
       const {data} = await axios.post(
-        "http://localhost:5001/auth/login", 
+        `${env.API_URL}/auth/login`, 
         {
           ...registerValues
         },
