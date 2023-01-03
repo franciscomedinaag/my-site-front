@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 
 export default function Login() {
   const [registerValues, setRegisterValues] = useState({
@@ -8,9 +9,39 @@ export default function Login() {
     password:""
   });
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const generateError = (err) => 
+  toast.error(err, {
+    position:"bottom-right"
+  })
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(registerValues)
+    try{
+      const {data} = await axios.post(
+        "http://localhost:5001/auth/login", 
+        {
+          ...registerValues
+        },
+        {
+          withCredentials: true
+        }
+      );
+
+      if(data){
+        if(data.errors){
+          const {email, password} = data.errors;
+          if(email) generateError(email);
+          else if(password) generateError(password)
+        } else {
+          navigate("/admin");
+        }
+      }
+
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (

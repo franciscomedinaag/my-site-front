@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 
@@ -8,6 +8,8 @@ export default function Register() {
     email:"",
     password:""
   });
+
+  const navigate = useNavigate();
 
   const generateError = (err) => 
   toast.error(err, {
@@ -33,7 +35,7 @@ export default function Register() {
           if(email) generateError(email);
           else if(password) generateError(password)
         } else {
-
+          navigate("/admin");
         }
       }
 
