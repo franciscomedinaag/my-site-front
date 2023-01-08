@@ -1,9 +1,6 @@
 import React from 'react'
 
 export default function Menu({selectedView, changeSelectedView}) {
-
-
-
   return (
     <div>
       Menu Options:

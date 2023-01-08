@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
-import env from "react-dotenv";
+import authContext from '../../context/auth';
 
 export default function Login() {
+  const { logIn } = useContext(authContext);
   const [registerValues, setRegisterValues] = useState({
     email:"",
     password:""
@@ -13,36 +13,16 @@ export default function Login() {
   const navigate = useNavigate();
 
   const generateError = (err) => 
-  toast.error(err, {
+    toast.error(err, {
     position:"bottom-right"
   })
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      const {data} = await axios.post(
-        `${env.API_URL}/auth/login`, 
-        {
-          ...registerValues
-        },
-        {
-          withCredentials: true
-        }
-      );
-
-      if(data){
-        if(data.errors){
-          const {email, password} = data.errors;
-          if(email) generateError(email);
-          else if(password) generateError(password)
-        } else {
-          navigate("/admin");
-        }
-      }
-
-    } catch (err) {
-      console.log(err)
-    }
+    logIn(registerValues).then((response)=>{
+      if ( response === "OK" ) navigate("/admin")
+      else generateError(response)
+    })
   }
 
   return (

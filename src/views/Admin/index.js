@@ -8,10 +8,16 @@ export default function Admin() {
   const navigate = useNavigate();
 
   useEffect(()=>{
-    checkAuth().then( authenticated => authenticated || navigate("/login") )
+    doCheckout();
   }, [])
 
-  const doLogOut = () => {
+  const doCheckout = () => {
+    checkAuth().then((isAuth)=>{
+      if(!isAuth) navigate("/login")
+    })
+  };
+
+  const doLogOut = async () => {
     if(logOut()) navigate("/login")
   };
   
