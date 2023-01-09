@@ -8,7 +8,7 @@ export default function AuthProvider({children}){
     
     const checkAuth = async () => {
       const { data } = await axios.post(
-          `${env.API_URL}/auth/checkUser`,
+          `${env.API_URL}/auth/checkIfUserIsAuth`,
           {},
           {withCredentials:true}
       );
