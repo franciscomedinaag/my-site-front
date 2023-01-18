@@ -6,7 +6,6 @@ export default function HomeContent({selectedView}) {
 
   return (
     <div className='home-content'>
-      HomeContent
       {
         selectedView === "about"
         ?

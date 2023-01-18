@@ -14,6 +14,21 @@
     height: 100%;
 }
 
+.home-content{ 
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    height: 100%;
+    width: 30%;
+}
+
+
+/* ---------- INFO BAR ---------- */
 .info-bar {
     height: 100%;
     display: flex;
@@ -57,17 +72,38 @@
     margin-top: 18px;
 }
 
-.home-content{ 
-    height: 100%;
-    width: 70%;
+/* ---------- ABOUT ---------- */
+.about-container {
+    max-width: 550px;
 }
 
-.menu {
-    height: 100%;
-    width: 30%;
+.about-info {
+    display: flex;
+    margin-bottom: 25px;
 }
 
+.avatar-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.avatar-data h1 {
+    font-size: 24px;
+    margin-bottom: 0px;
+}
+
+.avatar-data h2 {
+    font-size: 20px;
+    margin-top: 5px;
+    color: #C9C3C3;
+}
+
+/* ---------- MOBILE ---------- */
 @media only screen and (max-width: 768px) {
+    .home-container{
+        max-height: unset;
+        height: unset;
+    }
     .home-container > div {
         flex-flow: column-reverse;
         padding: 0 20px;
@@ -76,6 +112,10 @@
     .home-content, .info-bar, .info-bar-container {
         height: auto;
         width: 100%;
+    }
+
+    .home-content{
+        margin-bottom: 80px;
     }
 
     .menu {
@@ -105,5 +145,17 @@
         content: unset;
         width: 0px;
         height: 0px;
+    }
+
+    .about-info {
+        margin-top: 20px;
+    }
+
+    .avatar-data h1 {
+        font-size: 18px;
+    }
+    
+    .avatar-data h2 {
+        font-size: 16px;
     }
   }
