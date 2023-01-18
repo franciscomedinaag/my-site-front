@@ -22,11 +22,40 @@
     align-items: center;
 }
 
+/* ---------- MENU ---------- */
 .menu {
     height: 100%;
     width: 30%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-right: 25px;
 }
 
+.menu button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    text-align: end;
+}
+
+.menu a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-item-text {
+    font-size: 90px;
+    margin: 0;
+}
+
+.menu-item-text-active {
+    color: #AA45FA;
+}
 
 /* ---------- INFO BAR ---------- */
 .info-bar {
@@ -74,7 +103,8 @@
 
 /* ---------- ABOUT ---------- */
 .about-container {
-    max-width: 550px;
+    max-width: 660px;
+    padding: 0 20px;
 }
 
 .about-info {
@@ -98,7 +128,13 @@
     color: #C9C3C3;
 }
 
-/* ---------- MOBILE ---------- */
+/* ---------- RESPONSIVE ---------- */
+
+@media only screen and (max-width: 1200px) {
+    .menu-item-text {
+        font-size: 60px;
+    }
+}
 @media only screen and (max-width: 768px) {
     .home-container{
         max-height: unset;
@@ -106,7 +142,7 @@
     }
     .home-container > div {
         flex-flow: column-reverse;
-        padding: 0 20px;
+        padding: 0 30px;
     }
 
     .home-content, .info-bar, .info-bar-container {
@@ -145,6 +181,10 @@
         content: unset;
         width: 0px;
         height: 0px;
+    }
+
+    .about-container {
+        padding: 0px;
     }
 
     .about-info {
