@@ -1,8 +1,9 @@
-import React from 'react'
+import {React, useEffect, useState} from 'react'
 
 export default function Menu({selectedView, changeSelectedView}) {
+  
   return (
-    <div>
+    <div className='menu'>
       Menu Options:
       <button onClick={() => changeSelectedView("about")}>
         <h2 className={`menu-item-text ${selectedView==="about" ? "menu-item-text-active" : ""}`}>About</h2>

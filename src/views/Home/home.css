@@ -1,0 +1,109 @@
+.home-container {
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0F0F0F;
+    color: #FFFFFF;
+}
+
+.home-container > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.info-bar {
+    height: 100%;
+    display: flex;
+    justify-content: inherit;
+}
+
+.info-bar-container {
+    width: 90px;
+    overflow: visible;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.info-bar-sign {
+    font-weight: 300;
+    display: inline-block;
+    width: max-content;
+    transform: rotate(270deg);
+    position: absolute;
+    bottom: 140px;
+    left: -70px;
+}
+
+.info-bar-logos {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-bar-logos::before {
+    content: "";
+    width: 3px;
+    height: 100px;
+    background: white;
+}
+
+.info-bar-logo {
+    width: 38px;
+    margin-top: 18px;
+}
+
+.home-content{ 
+    height: 100%;
+    width: 70%;
+}
+
+.menu {
+    height: 100%;
+    width: 30%;
+}
+
+@media only screen and (max-width: 768px) {
+    .home-container > div {
+        flex-flow: column-reverse;
+        padding: 0 20px;
+    }
+
+    .home-content, .info-bar, .info-bar-container {
+        height: auto;
+        width: 100%;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .info-bar-sign {
+        position: unset;
+        transform: rotate(0deg);
+        width: 100%;
+        text-align: center;
+        margin: 25px 0 40px;
+    }
+
+    .info-bar-logo {
+        width: 30px;
+        margin-top: 0px;
+    }
+
+    .info-bar-logos {
+        align-items: center;
+        flex-flow: row;
+        justify-content: space-around;
+    }
+
+    .info-bar-logos::before {
+        content: unset;
+        width: 0px;
+        height: 0px;
+    }
+  }
