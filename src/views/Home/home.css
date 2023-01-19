@@ -53,10 +53,17 @@
     margin: 0;
 }
 
+.menu-item-text:hover {
+    opacity: 0.7;
+}
+
 .menu-item-text-active {
     color: #AA45FA;
 }
 
+.menu-item-text-active:hover {
+    opacity: 1;
+}
 /* ---------- INFO BAR ---------- */
 .info-bar {
     height: 100%;
@@ -99,6 +106,10 @@
 .info-bar-logo {
     width: 38px;
     margin-top: 18px;
+}
+
+.info-bar-logo:hover {
+    opacity: 0.7;
 }
 
 /* ---------- ABOUT ---------- */
