@@ -64,6 +64,7 @@
 .menu-item-text-active:hover {
     opacity: 1;
 }
+
 /* ---------- INFO BAR ---------- */
 .info-bar {
     height: 100%;
@@ -139,6 +140,58 @@
     color: #C9C3C3;
 }
 
+/* ---------- WORK ----------- */
+.work-container {
+    max-width: 720px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.work-list {
+    width: 25%;
+}
+
+.work-list h4 {
+    border-left: 3px solid white;
+    margin: 0;
+    padding: 12px 10px 12px 30px;
+    color: #C9C3C3;
+    cursor: pointer;
+}
+
+h4.work-list-active {
+    color: #AA45FA;
+    border-left: 3px solid #AA45FA;
+}
+
+.work-info-dates, .work-info-skills {
+    color: #C9C3C3;
+}
+
+.work-info-title {
+    margin: 5px 0px;
+}
+
+.work-info-title span{
+    color:#AA45FA;
+}
+
+.work-info-description {
+    margin: 10px 0px;
+}
+
+.work-info-container {
+    width: 75%;
+    margin-left: 35px;
+}
+
+.work-info-skills span:not(:last-child):after {
+    content: "*";
+    margin: 0px 5px 0px;
+}
+
 /* ---------- RESPONSIVE ---------- */
 
 @media only screen and (max-width: 1200px) {
@@ -162,6 +215,7 @@
     }
 
     .home-content{
+        display: block;
         margin-bottom: 80px;
     }
 
@@ -196,6 +250,7 @@
 
     .about-container {
         padding: 0px;
+        margin-bottom: 50px
     }
 
     .about-info {
